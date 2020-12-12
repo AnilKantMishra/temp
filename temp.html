@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<title>temperature </title>
+
+<body style="background-color: beige; font-size: 20px;">
+    <center>
+        <fieldset style="width: 300px; height: 30vh; border-radius: 20px; background-color: rgb(245, 239, 230);">
+            <legend style="text-align: center; font-size: 30px; font-style: italic; margin-bottom: 20px;"> Temperature
+                Convertor</legend>
+            <form>
+                <input type="text" id="tempa" value="" placeholder="Enter Temperature here">
+
+                <select name="dropdown" id="drop">
+                    <option value="f">
+                        F
+                    </option>
+                    <option value="c">
+                        C
+                    </option>
+
+                </select>
+                <br>
+                <button type="button" onclick="Mytemp('a')" style="margin-top: 20px; margin-bottom: 20px;"> Submit
+                </button>
+                <button type="button" onclick="Mytemp('b')"
+                    style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px;"> Reset
+                </button>
+
+            </form>
+
+            <label> Converted tempertaure is <span id="ct"> 0</span></label>
+        </fieldset>
+
+    </center>
+</body>
+<script>
+
+
+    function Mytemp(changedvalue) {
+        var temp = document.getElementById('tempa').value;
+        var dropit = document.getElementById('drop').value;
+        var result;
+        if (changedvalue == 'b') {
+            document.getElementById('tempa').value = '';
+            document.getElementById('ct').innerHTML = '';
+        }
+        else {
+            if (dropit == 'f') {
+                console.log(temp)
+
+                result = eval(temp * 9 / 5 + 32);
+                document.getElementById('ct').innerHTML = result;
+            }
+            else {
+
+                result = eval((temp - 32) * (5 / 9));
+                document.getElementById('ct').innerHTML = result;
+
+            }
+
+        }
+
+    }
+
+</script>
+
+
+</html>
